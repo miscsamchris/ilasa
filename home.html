@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{pageTitle}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="icon" type="image/png" href="favi.png" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="main.css">
+    <script type="application/javascript">
+    </script>
+
+    <link rel="stylesheet" href="main.css">
+    <script type="application/javascript">
+        var i = 0;
+        var buff = 0;
+        var box = [22];
+        box[0] = 127 * 72 * 57;
+        box[1] = 36 * 22 * 16;
+        box[2] = 44 * 36 * 10;
+        box[3] = 46 * 36 * 16;
+        box[4] = 46 * 36 * 38;
+        box[5] = 61 * 57 * 25;
+        box[6] = 46 * 36 * 61;
+        box[7] = 61 * 57 * 37;
+        box[8] = 61 * 57 * 37;
+        box[9] = 61 * 57 * 45;
+        box[10] = 61 * 57 * 45;
+        box[11] = 74 * 47 * 57;
+        box[21] = 72 * 45 * 57;
+        box[12] = 61 * 57 * 60;
+        box[13] = 61 * 57 * 60;
+        box[14] = 61 * 57 * 75;
+        box[15] = 61 * 57 * 75;
+        box[16] = 78 * 60 * 60;
+        box[17] = 78 * 60 * 60;
+        box[18] = 95 * 72 * 36;
+        box[19] = 83 * 72 * 57;
+        box[20] = 95 * 72 * 57;
+        var buff = 0;
+    </script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default container-fluid" style="width: 100%;">
+        <div class="container-fluid" style="width: 100%;">
+            <div class="navbar-header">
+                <img src="logo.png" class="navbar-brand logo">
+                <p class="navbar-brand title " style="color: #6A8B3B;">Intelligent Logistics Allocation System Application</p>
+            </div>
+        </div>
+    </nav>
+    <div class="body1 container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <form class="c" style="font-size: 15px;">
+                    <fieldset style="text-align: center;">
+                        <hr>
+                        <p style=" text-align: justify;" id="m">
+                            <textarea rows="4" cols="50" placeholder="Enter the excel data" id="texta"></textarea>
+                            <label>Box Size   :   </label>
+                            <select id="myList" style="margin-left:3%; background: lightgray; color: #2b2b2b;border: 0.5px #6A8B3B solid;">
+                 <option value = "0">C1310  -  :|0.737|:</option>
+                  <option value = "1">1/2 U Box  -  :|0.017|:</option>
+                 <option value = "2">P-Box   -  :|0.022|:</option>
+                 <option value = "3">U-box  -  :|0.073|:</option>
+                 <option value = "4">S-Box  -  :|0.073|:</option>
+                   <option value = "5">F1 without pallet  -  :|0.102|:</option>
+                 <option value = "6">K-Box  -  :|0.114|:</option>
+                 <option value = "7">F1+ With out Pallet  -  :|0.145|:</option>
+                   <option value ="8">F1+  -  :|0.193|: </option>
+                 <option value = "9">F2-With out Pallet  -  :|0.175|:</option>
+                 <option value = "10">F2  -  :|0.223|:</option>
+                   <option value = "11">C495-With out Pallet  -  :|0.220|:</option>
+                  <option value="21">C495  -  :|0.271|:</option>
+                 <option value = "12">F2+-With out Pallet  -  :|0.230|:</option>
+                 <option value = "13">F2+  -  :|0.279|:</option>
+                   <option value = "14">F3-With out Pallet  -  :|0.284|:</option>
+                   <option value = "15">F3  -  :|0.335|:</option>
+                 <option value = "16">1/2 High with out Pallet  -  :|0.310|:</option>
+                 <option value = "17">1/2 High  -  :|0.377|:</option>
+                   <option value = "18">C990L  -  :|0.399|:</option>
+                   <option value = "19">C870-NEW  -  :|0.489|:</option>
+                  <option value = "20">C990  -  :|0.557|:</option>
+               </select>
+                        </p>
+                        <hr style="width: 40%"><span style="margin-right: 26%;"><label style="padding-right: 20px;"> Enter the Number of Boxes</label><input  max="1000" value="0" type="number"id="value"></span>
+                        <input type="range" min="0" max="1000" value="0" class="slider" id="No" style="width: 50%; margin: 0 auto; margin-top: 30px;">
+                        <hr style="width: 40%"><span style="margin-right: 26%;">
+                  <label style="margin-left: 10%;">Truck selection</label><br><input style="margin-left:10%;" type="checkbox" name="tchk" id="20ftchk" value=26756075.5>      20 Feet Truck
+                  <input type="checkbox" name="tchk" id="40ftchk" checked="checked" style="margin-left: 10%" value=53994405.6>       40 Feet Truck
+
+                  <script>
+                      var slider = document.getElementById("No");
+                      var output = document.getElementById("value");
+                      output.innerHTML = slider.value;
+                      var i = 0;
+                      slider.oninput = function() {
+                          output.value = this.value;
+                      }
+                      output.oninput = function() {
+                          slider.value = this.value;
+                      }
+
+                      function cal() {
+                          var f1, f2;
+                          var t1 = document.getElementById('20ftchk').value,
+                              t2 = document.getElementById('40ftchk').value;
+                          var cboxes = document.getElementsByName('tchk');
+                          var a = b = d = c = e = 0;
+                          alert( "Vol of boxes  :  " + buff);
+                          var a = buff;
+                          if (cboxes[0].checked && cboxes[1].checked) {
+                              var e = 0;
+                              var b = a / t2;
+                              var d = parseInt(b);
+                              var c = a - (d * t2);
+                              alert(c)
+                              if (c > t1) {
+                                  d = d + 1;
+                              }
+                              if (c <= t1 && c != 0) {
+                                  e = e + 1;
+                              }
+                          } else if (cboxes[0].checked) {
+                              e = Math.ceil(a / t1);
+
+                          } else if (cboxes[1].checked) {
+                              b = a / t2;
+                              d=Math.ceil(b);
+                          }
+                          document.getElementById("result").style.display = 'inline';
+                          var space = "<br><span id='trucks'><div style='font-size; 40px;'>";
+                          document.getElementById("ans").innerHTML = space;
+                          if (d >= 1)
+                              document.getElementById("ans").innerHTML = document.getElementById("ans").innerHTML + d + " X <img src='40ft..jpg' style='width:120px; height:90px;'><br>";
+                          if (e >= 1) {
+                              document.getElementById("ans").innerHTML = document.getElementById("ans").innerHTML + e + " X <img src='20ft..jpg' style='width:120px; height:90px;'><br>";
+                          }
+                          document.getElementById("ans").innerHTML = document.getElementById("ans").innerHTML + '</div>';
+                      }
+
+                      function add() {
+                          document.getElementById("addbut").disabled=true;
+                         var Count1 = [22];
+        for (var cri = 0; cri < 22; cri++) {
+            Count1[cri] = [0, 0];
+        }
+
+        Count1[0][0] = 0.737;
+        Count1[1][0] = 0.017;
+        Count1[2][0] = 0.022;
+        Count1[3][0] = 0.073;
+        Count1[4][0] = 0.073;
+        Count1[5][0] = 0.102;
+        Count1[6][0] = 0.114;
+        Count1[7][0] = 0.145;
+        Count1[8][0] = 0.193;
+        Count1[9][0] = 0.175;
+        Count1[10][0] = 0.223;
+        Count1[11][0] = 0.220;
+        Count1[12][0] = 0.230;
+        Count1[13][0] = 0.279;
+        Count1[14][0] = 0.284;
+        Count1[15][0] = 0.335;
+        Count1[16][0] = 0.310;
+        Count1[17][0] = 0.377;
+        Count1[18][0] = 0.399;
+        Count1[19][0] = 0.489;
+        Count1[20][0] = 0.557;
+        Count1[21][0] = 0.271;
+        Count1[0][1] = 0;
+        Count1[1][1] = 0;
+        Count1[2][1] = 0;
+        Count1[3][1] = 0;
+        Count1[4][1] = 0;
+        Count1[5][1] = 0;
+        Count1[6][1] = 0;
+        Count1[7][1] = 0;
+        Count1[8][1] = 0;
+        Count1[9][1] = 0;
+        Count1[10][1] = 0;
+        Count1[11][1] = 0;
+        Count1[12][1] = 0;
+        Count1[13][1] = 0;
+        Count1[14][1] = 0;
+        Count1[15][1] = 0;
+        Count1[16][1] = 0;
+        Count1[17][1] = 0;
+        Count1[18][1] = 0;
+        Count1[19][1] = 0;
+        Count1[20][1] = 0;
+        Count1[21][1] = 0;
+                           /*var x = document.getElementById("myList");
+                          var U = x.options[x.selectedIndex].text;
+                          var num = document.getElementById("value").value;
+                          if (num != 0) {
+                              document.getElementById("rec").style.display = 'inline';
+                              var y = document.getElementById('enterec').insertRow(-1);
+                              var c1 = y.insertCell(0);
+                              var c2 = y.insertCell(1);
+                              c1.innerHTML = U;
+                              c2.innerHTML = num;
+                              buff += (num * box[x.selectedIndex]);
+                          } */
+                            var tda=document.getElementById("texta").value;
+                            var TDAR=tda.split("\n");
+                            for(var tdai=0;tdai<TDAR.length;tdai++){
+                                for(var tdaj=0;tdaj<22;tdaj++){
+                                   if(TDAR[tdai]==Count1[tdaj][0]){
+                                      Count1[tdaj][1]++;
+                                   }
+                                } 
+                            }
+                           
+                            for(var tdaj=0;tdaj<22;tdaj++){
+                                if(Count1[tdaj][1]!=0){
+                                    buff+=(box[tdaj]*Count1[tdaj][1]);
+                                }
+                            }
+                      }
+
+                  </script>
+
+              </fieldset>
+          </form>
+          <hr style="width: 40%">
+          <button class="a" id="addbut" style="margin-left: 35%;" onclick="add(); ">Add</button> <button class="a" style="margin-left: 10%;" onclick="cal();">Calculate</button>
+
+          <hr>
+        </div>
+        <br />
+        <br />
+
+        <div class="col-md-5 well" >
+          <div class="row">
+         <!--     <div class="container  " id="rec">
+
+                  <br>
+                  <table id="enterec">
+                      <tr>
+                          <th class="head"> Box Category :</th>
+                          <th class="head"> No. of boxs  :</th>
+                      </tr>
+                  </table>
+              </div>
+            -->
+     <hr style="width: 40%">
+              <div style="margin-left:20%;" class="container  ">
+                  <div id="result" >
+                      The containers recommended are:   <span id="ans"></span>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
